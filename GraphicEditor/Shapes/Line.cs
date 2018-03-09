@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using lab2.Shapes;
 
-namespace lab1
+namespace lab2.Shapes
 {
     class Line : Figure
     {
