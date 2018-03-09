@@ -9,7 +9,7 @@ namespace lab2
 {
     class Square : Rectangle
     {
-        public Square(Point upLeft, Point size) : base(upLeft, size)
+        public Square(Pen pen, Point upLeft, Point size) : base(pen, upLeft, size)
         {
             this.upLeft = upLeft;
         }

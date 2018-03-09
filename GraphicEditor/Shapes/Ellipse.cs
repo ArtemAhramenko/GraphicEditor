@@ -11,7 +11,7 @@ namespace lab2
     class Ellipse : Figure
     {
         public int sizeX, sizeY;
-        public Ellipse(Point upLeft, Point size) : base(upLeft, new Point(upLeft.X + size.X, upLeft.Y + size.Y))
+        public Ellipse(Pen pen, Point upLeft, Point size) : base(pen, upLeft, new Point(upLeft.X + size.X, upLeft.Y + size.Y))
         {
             sizeX = size.X;
             sizeY = size.Y;

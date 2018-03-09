@@ -11,7 +11,7 @@ namespace lab2.Shapes
     {
         Point[] points;
         Point left, up, right;
-        public Triangle(Point upLeft, Point downRigth) : base(upLeft, downRigth)
+        public Triangle(Pen pen, Point upLeft, Point downRigth) : base(pen, upLeft, downRigth)
         {
 
 

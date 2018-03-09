@@ -11,7 +11,8 @@ namespace lab2.Shapes
     {
         public Point upLeft, downRigth;
         public Pen pen = new Pen(Color.Green, 3);
-        public Figure(Point upLeft, Point downRigth){
+        public Figure(Pen pen, Point upLeft, Point downRigth){
+            this.pen = pen;
             this.upLeft = upLeft;
             this.downRigth = downRigth;
         }

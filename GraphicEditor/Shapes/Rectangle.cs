@@ -11,7 +11,7 @@ namespace lab2
     class Rectangle : Figure
     {
         public int sizeX, sizeY;
-        public Rectangle(Point upLeft, Point size) : base(upLeft, new Point())
+        public Rectangle(Pen pen, Point upLeft, Point size) : base(pen, upLeft, new Point())
         {
             sizeX = size.X;
             sizeY = size.Y;

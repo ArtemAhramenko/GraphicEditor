@@ -10,7 +10,7 @@ namespace lab2
 {
     class Circle : Ellipse
     {
-        public Circle(Point upLeft, Point size) : base(upLeft, size)
+        public Circle(Pen pen, Point upLeft, Point size) : base(pen, upLeft, size)
         {
         }
 

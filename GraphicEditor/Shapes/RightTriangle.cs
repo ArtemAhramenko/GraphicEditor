@@ -11,7 +11,7 @@ namespace GraphicEditor.Shapes
     {
         Point[] points;
         Point left, up, right;
-        public RightTriangle(Point upLeft, Point downRigth) : base(upLeft, downRigth)
+        public RightTriangle(Pen pen, Point upLeft, Point downRigth) : base(pen, upLeft, downRigth)
         {
 
 

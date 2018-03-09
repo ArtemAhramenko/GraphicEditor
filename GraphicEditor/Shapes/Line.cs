@@ -11,7 +11,7 @@ namespace lab1
     class Line : Figure
     {
         public Point begin, end;
-        public Line(Point begin, Point end) : base(begin, end)
+        public Line(Pen pen, Point begin, Point end) : base(pen, begin, end)
         {
             this.begin = begin;
             this.end = end;
