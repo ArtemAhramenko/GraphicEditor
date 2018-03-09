@@ -30,7 +30,12 @@
         {
             this.mainPane = new System.Windows.Forms.Panel();
             this.groupBoxShapes = new System.Windows.Forms.GroupBox();
+            this.pointY = new System.Windows.Forms.Label();
+            this.pointX = new System.Windows.Forms.Label();
+            this.pictureBoxRightTriangle = new System.Windows.Forms.PictureBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.pictureBoxRedo = new System.Windows.Forms.PictureBox();
+            this.pictureBoxUndo = new System.Windows.Forms.PictureBox();
             this.pictureBoxLine = new System.Windows.Forms.PictureBox();
             this.pictureBoxSquare = new System.Windows.Forms.PictureBox();
             this.pictureBoxEllipse = new System.Windows.Forms.PictureBox();
@@ -91,12 +96,10 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.pictureBoxColor = new System.Windows.Forms.PictureBox();
-            this.pictureBoxUndo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxRedo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxRightTriangle = new System.Windows.Forms.PictureBox();
-            this.pointX = new System.Windows.Forms.Label();
-            this.pointY = new System.Windows.Forms.Label();
             this.groupBoxShapes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRightTriangle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRedo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUndo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSquare)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEllipse)).BeginInit();
@@ -109,9 +112,6 @@
             this.groupBoxEllipse.SuspendLayout();
             this.groupBoxLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUndo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRedo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRightTriangle)).BeginInit();
             this.SuspendLayout();
             // 
             // mainPane
@@ -143,10 +143,43 @@
             this.groupBoxShapes.Controls.Add(this.pictureBoxCircle);
             this.groupBoxShapes.Location = new System.Drawing.Point(0, 609);
             this.groupBoxShapes.Name = "groupBoxShapes";
-            this.groupBoxShapes.Size = new System.Drawing.Size(315, 104);
+            this.groupBoxShapes.Size = new System.Drawing.Size(318, 104);
             this.groupBoxShapes.TabIndex = 10;
             this.groupBoxShapes.TabStop = false;
             this.groupBoxShapes.Text = "Shapes";
+            // 
+            // pointY
+            // 
+            this.pointY.AutoSize = true;
+            this.pointY.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.pointY.Location = new System.Drawing.Point(247, 25);
+            this.pointY.Name = "pointY";
+            this.pointY.Size = new System.Drawing.Size(34, 20);
+            this.pointY.TabIndex = 16;
+            this.pointY.Text = "Y =";
+            // 
+            // pointX
+            // 
+            this.pointX.AutoSize = true;
+            this.pointX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.pointX.Location = new System.Drawing.Point(185, 25);
+            this.pointX.Name = "pointX";
+            this.pointX.Size = new System.Drawing.Size(35, 20);
+            this.pointX.TabIndex = 15;
+            this.pointX.Text = "X =";
+            // 
+            // pictureBoxRightTriangle
+            // 
+            this.pictureBoxRightTriangle.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBoxRightTriangle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxRightTriangle.Image = global::GraphicEditor.Properties.Resources.RightTriangle;
+            this.pictureBoxRightTriangle.Location = new System.Drawing.Point(128, 21);
+            this.pictureBoxRightTriangle.Name = "pictureBoxRightTriangle";
+            this.pictureBoxRightTriangle.Size = new System.Drawing.Size(30, 30);
+            this.pictureBoxRightTriangle.TabIndex = 14;
+            this.pictureBoxRightTriangle.TabStop = false;
+            this.pictureBoxRightTriangle.Tag = "7";
+            this.pictureBoxRightTriangle.Click += new System.EventHandler(this.pictureBoxShape_Click);
             // 
             // label21
             // 
@@ -156,6 +189,30 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(0, 13);
             this.label21.TabIndex = 1;
+            // 
+            // pictureBoxRedo
+            // 
+            this.pictureBoxRedo.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBoxRedo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxRedo.Image = global::GraphicEditor.Properties.Resources.redo;
+            this.pictureBoxRedo.Location = new System.Drawing.Point(227, 59);
+            this.pictureBoxRedo.Name = "pictureBoxRedo";
+            this.pictureBoxRedo.Size = new System.Drawing.Size(30, 30);
+            this.pictureBoxRedo.TabIndex = 2;
+            this.pictureBoxRedo.TabStop = false;
+            this.pictureBoxRedo.Click += new System.EventHandler(this.pictureBoxRedo_Click);
+            // 
+            // pictureBoxUndo
+            // 
+            this.pictureBoxUndo.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBoxUndo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxUndo.Image = global::GraphicEditor.Properties.Resources.undo;
+            this.pictureBoxUndo.Location = new System.Drawing.Point(187, 59);
+            this.pictureBoxUndo.Name = "pictureBoxUndo";
+            this.pictureBoxUndo.Size = new System.Drawing.Size(30, 30);
+            this.pictureBoxUndo.TabIndex = 11;
+            this.pictureBoxUndo.TabStop = false;
+            this.pictureBoxUndo.Click += new System.EventHandler(this.pictureBoxUndo_Click);
             // 
             // pictureBoxLine
             // 
@@ -778,72 +835,14 @@
             // 
             // pictureBoxColor
             // 
-            this.pictureBoxColor.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBoxColor.BackColor = System.Drawing.SystemColors.MenuText;
             this.pictureBoxColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxColor.Image = global::GraphicEditor.Properties.Resources.colorBlack;
-            this.pictureBoxColor.Location = new System.Drawing.Point(264, 59);
+            this.pictureBoxColor.Location = new System.Drawing.Point(267, 59);
             this.pictureBoxColor.Name = "pictureBoxColor";
             this.pictureBoxColor.Size = new System.Drawing.Size(30, 30);
             this.pictureBoxColor.TabIndex = 13;
             this.pictureBoxColor.TabStop = false;
             this.pictureBoxColor.Click += new System.EventHandler(this.pictureBoxColor_Click);
-            // 
-            // pictureBoxUndo
-            // 
-            this.pictureBoxUndo.BackColor = System.Drawing.SystemColors.Window;
-            this.pictureBoxUndo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxUndo.Image = global::GraphicEditor.Properties.Resources.undo;
-            this.pictureBoxUndo.Location = new System.Drawing.Point(184, 59);
-            this.pictureBoxUndo.Name = "pictureBoxUndo";
-            this.pictureBoxUndo.Size = new System.Drawing.Size(30, 30);
-            this.pictureBoxUndo.TabIndex = 11;
-            this.pictureBoxUndo.TabStop = false;
-            this.pictureBoxUndo.Click += new System.EventHandler(this.pictureBoxUndo_Click);
-            // 
-            // pictureBoxRedo
-            // 
-            this.pictureBoxRedo.BackColor = System.Drawing.SystemColors.Window;
-            this.pictureBoxRedo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxRedo.Image = global::GraphicEditor.Properties.Resources.redo;
-            this.pictureBoxRedo.Location = new System.Drawing.Point(224, 59);
-            this.pictureBoxRedo.Name = "pictureBoxRedo";
-            this.pictureBoxRedo.Size = new System.Drawing.Size(30, 30);
-            this.pictureBoxRedo.TabIndex = 2;
-            this.pictureBoxRedo.TabStop = false;
-            this.pictureBoxRedo.Click += new System.EventHandler(this.pictureBoxRedo_Click);
-            // 
-            // pictureBoxRightTriangle
-            // 
-            this.pictureBoxRightTriangle.BackColor = System.Drawing.SystemColors.Window;
-            this.pictureBoxRightTriangle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxRightTriangle.Image = global::GraphicEditor.Properties.Resources.RightTriangle;
-            this.pictureBoxRightTriangle.Location = new System.Drawing.Point(128, 21);
-            this.pictureBoxRightTriangle.Name = "pictureBoxRightTriangle";
-            this.pictureBoxRightTriangle.Size = new System.Drawing.Size(30, 30);
-            this.pictureBoxRightTriangle.TabIndex = 14;
-            this.pictureBoxRightTriangle.TabStop = false;
-            this.pictureBoxRightTriangle.Tag = "7";
-            this.pictureBoxRightTriangle.Click += new System.EventHandler(this.pictureBoxShape_Click);
-            // 
-            // pointX
-            // 
-            this.pointX.AutoSize = true;
-            this.pointX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.pointX.Location = new System.Drawing.Point(179, 25);
-            this.pointX.Name = "pointX";
-            this.pointX.Size = new System.Drawing.Size(35, 20);
-            this.pointX.TabIndex = 15;
-            this.pointX.Text = "X =";
-            // 
-            // pointY
-            // 
-            this.pointY.AutoSize = true;
-            this.pointY.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.pointY.Location = new System.Drawing.Point(244, 25);
-            this.pointY.Name = "pointY";
-            this.pointY.Size = new System.Drawing.Size(34, 20);
-            this.pointY.TabIndex = 16;
-            this.pointY.Text = "Y =";
             // 
             // MainForm
             // 
@@ -865,6 +864,9 @@
             this.Text = "Pane";
             this.groupBoxShapes.ResumeLayout(false);
             this.groupBoxShapes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRightTriangle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRedo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUndo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSquare)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEllipse)).EndInit();
@@ -882,9 +884,6 @@
             this.groupBoxLine.ResumeLayout(false);
             this.groupBoxLine.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUndo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRedo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRightTriangle)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -954,10 +953,10 @@
         private System.Windows.Forms.PictureBox pictureBoxCircle;
         private System.Windows.Forms.PictureBox pictureBoxRedo;
         private System.Windows.Forms.PictureBox pictureBoxUndo;
-        private System.Windows.Forms.PictureBox pictureBoxColor;
         private System.Windows.Forms.Label pointY;
         private System.Windows.Forms.Label pointX;
         private System.Windows.Forms.PictureBox pictureBoxRightTriangle;
+        private System.Windows.Forms.PictureBox pictureBoxColor;
     }
 }
 

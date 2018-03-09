@@ -59,13 +59,13 @@ namespace lab2
 
         private void chooseObject()
         {
-            figuresDict.Add(1, new Circle(new Point(X1, Y1), new Point(X2, Y2)));
-            figuresDict.Add(2, new Square(new Point(X1, Y1), new Point(X2, Y2)));
-            figuresDict.Add(3, new Rectangle(new Point(X1, Y1), new Point(X2, Y2)));
-            figuresDict.Add(4, new Triangle(new Point(X1, Y1), new Point(X2, Y2)));
-            figuresDict.Add(5, new Ellipse(new Point(X1, Y1), new Point(X2, Y2)));
-            figuresDict.Add(6, new Line(new Point(X1, Y1), new Point(X2, Y2)));
-            figuresDict.Add(7, new RightTriangle(new Point(X1, Y1), new Point(X2, Y2)));
+            figuresDict.Add(1, new Circle(new Pen(paintColor, 3), new Point(X1, Y1), new Point(X2, Y2)));
+            figuresDict.Add(2, new Square(new Pen(paintColor, 3), new Point(X1, Y1), new Point(X2, Y2)));
+            figuresDict.Add(3, new Rectangle(new Pen(paintColor, 3), new Point(X1, Y1), new Point(X2, Y2)));
+            figuresDict.Add(4, new Triangle(new Pen(paintColor, 3), new Point(X1, Y1), new Point(X2, Y2)));
+            figuresDict.Add(5, new Ellipse(new Pen(paintColor, 3), new Point(X1, Y1), new Point(X2, Y2)));
+            figuresDict.Add(6, new Line(new Pen(paintColor, 3), new Point(X1, Y1), new Point(X2, Y2)));
+            figuresDict.Add(7, new RightTriangle(new Pen(paintColor, 3), new Point(X1, Y1), new Point(X2, Y2)));
         }
 
         private void pictureBoxUndo_Click(object sender, EventArgs e)
