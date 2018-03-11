@@ -1,38 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
-using lab2.Shapes;
 
-namespace lab2
+namespace GraphicEditor.Shapes
 {
     class Ellipse : Figure
     {
-        public int sizeX, sizeY;
-        public Ellipse(Pen pen, Point upLeft, Point size) : base(pen, upLeft, new Point(upLeft.X + size.X, upLeft.Y + size.Y))
-        {
-            sizeX = size.X;
-            sizeY = size.Y;
-        }
+        public Ellipse(Pen pen, Point firstPoint, Point secondPoint) : base(pen, firstPoint, secondPoint) { }
+
         public override void Draw(Graphics graphics)
         {
-            if ((upLeft.X < sizeX) && (upLeft.Y < sizeY))
+            if ((firstPoint.X < secondPoint.X) && (firstPoint.Y < secondPoint.Y))
             {
-                graphics.DrawEllipse(pen, upLeft.X, upLeft.Y, Math.Abs(sizeX - upLeft.X), Math.Abs(sizeY - upLeft.Y));
+                graphics.DrawEllipse(pen, firstPoint.X, firstPoint.Y, Math.Abs(secondPoint.X - firstPoint.X), Math.Abs(secondPoint.Y - firstPoint.Y));
             }
-            else if ((upLeft.X < sizeX) && (upLeft.Y > sizeY))
+            else if ((firstPoint.X < secondPoint.X) && (firstPoint.Y > secondPoint.Y))
             {
-                graphics.DrawEllipse(pen, upLeft.X, upLeft.Y - (upLeft.Y - sizeY), Math.Abs(sizeX - upLeft.X), Math.Abs(sizeY - upLeft.Y));
+                graphics.DrawEllipse(pen, firstPoint.X, firstPoint.Y - (firstPoint.Y - secondPoint.Y), Math.Abs(secondPoint.X - firstPoint.X), Math.Abs(secondPoint.Y - firstPoint.Y));
             }
-            else if ((upLeft.X > sizeX) && (upLeft.Y > sizeY))
+            else if ((firstPoint.X > secondPoint.X) && (firstPoint.Y > secondPoint.Y))
             {
-                graphics.DrawEllipse(pen, upLeft.X - (upLeft.X - sizeX), upLeft.Y - (upLeft.Y - sizeY), Math.Abs(sizeX - upLeft.X), Math.Abs(sizeY - upLeft.Y));
+                graphics.DrawEllipse(pen, firstPoint.X - (firstPoint.X - secondPoint.X), firstPoint.Y - (firstPoint.Y - secondPoint.Y), Math.Abs(secondPoint.X - firstPoint.X), Math.Abs(secondPoint.Y - firstPoint.Y));
             }
-            else if ((upLeft.X > sizeX) && (upLeft.Y < sizeY))
+            else
             {
-                graphics.DrawEllipse(pen, upLeft.X - (upLeft.X - sizeX), upLeft.Y, Math.Abs(sizeX - upLeft.X), Math.Abs(sizeY - upLeft.Y));
+                graphics.DrawEllipse(pen, firstPoint.X - (firstPoint.X - secondPoint.X), firstPoint.Y, Math.Abs(secondPoint.X - firstPoint.X), Math.Abs(secondPoint.Y - firstPoint.Y));
             }
 
         }

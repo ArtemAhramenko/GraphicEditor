@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
-namespace lab2.Shapes
+namespace GraphicEditor.Shapes
 {
     abstract class Figure
     {
-        public Point upLeft, downRigth;
+        public Point firstPoint, secondPoint;
         public Pen pen = new Pen(Color.Green, 3);
-        public Figure(Pen pen, Point upLeft, Point downRigth){
+        public Figure(Pen pen, Point firstPoint, Point secondPoint)
+        {
             this.pen = pen;
-            this.upLeft = upLeft;
-            this.downRigth = downRigth;
+            this.firstPoint = firstPoint;
+            this.secondPoint = secondPoint;
         }
+
         public abstract void Draw(Graphics graphics);
     }
 }

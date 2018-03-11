@@ -1,62 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace GraphicEditor.Shapes
 {
-    class RightTriangle : lab2.Shapes.Triangle
+    class RightTriangle : GraphicEditor.Shapes.Triangle
     {
         Point[] points;
         Point left, up, right;
-        public RightTriangle(Pen pen, Point upLeft, Point downRigth) : base(pen, upLeft, downRigth)
-        {
-
-
-            if ((upLeft.X < downRigth.X) && (upLeft.Y < downRigth.Y))
-            {
-                up.X = upLeft.X;
-                up.Y = upLeft.Y;
-                left.X = upLeft.X;
-                left.Y = downRigth.Y;
-                right.X = downRigth.X;
-                right.Y = downRigth.Y;
-            }
-            else if ((upLeft.X < downRigth.X) && (upLeft.Y > downRigth.Y))
-            {
-                up.X = upLeft.X;
-                up.Y = downRigth.Y;
-                left.X = upLeft.X;
-                left.Y = upLeft.Y;
-                right.X = downRigth.X;
-                right.Y = upLeft.Y;
-            }
-            else if ((upLeft.X > downRigth.X) && (upLeft.Y < downRigth.Y))
-            {
-                up.X = downRigth.X;
-                up.Y = upLeft.Y;
-                left.X = downRigth.X;
-                left.Y = downRigth.Y;
-                right.X = upLeft.X;
-                right.Y = downRigth.Y;
-            }
-            else if ((upLeft.X > downRigth.X) && (upLeft.Y > downRigth.Y))
-            {
-                up.X = downRigth.X;
-                up.Y = downRigth.Y;
-                left.X = downRigth.X;
-                left.Y = upLeft.Y;
-                right.X = upLeft.X;
-                right.Y = upLeft.Y;
-            }
-
-            points = new Point[] { up, left, right };
-        }
+        public RightTriangle(Pen pen, Point firstPoint, Point secondPoint) : base(pen, firstPoint, secondPoint) { }
 
         public override void Draw(Graphics graphics)
         {
+            if ((firstPoint.X < secondPoint.X) && (firstPoint.Y < secondPoint.Y))
+            {
+                up.X = firstPoint.X;
+                up.Y = firstPoint.Y;
+                left.X = firstPoint.X;
+                left.Y = secondPoint.Y;
+                right.X = secondPoint.X;
+                right.Y = secondPoint.Y;
+            }
+            else if ((firstPoint.X < secondPoint.X) && (firstPoint.Y > secondPoint.Y))
+            {
+                up.X = firstPoint.X;
+                up.Y = secondPoint.Y;
+                left.X = firstPoint.X;
+                left.Y = firstPoint.Y;
+                right.X = secondPoint.X;
+                right.Y = firstPoint.Y;
+            }
+            else if ((firstPoint.X > secondPoint.X) && (firstPoint.Y < secondPoint.Y))
+            {
+                up.X = secondPoint.X;
+                up.Y = firstPoint.Y;
+                left.X = secondPoint.X;
+                left.Y = secondPoint.Y;
+                right.X = firstPoint.X;
+                right.Y = secondPoint.Y;
+            }
+            else
+            {
+                up.X = secondPoint.X;
+                up.Y = secondPoint.Y;
+                left.X = secondPoint.X;
+                left.Y = firstPoint.Y;
+                right.X = firstPoint.X;
+                right.Y = firstPoint.Y;
+            }
+            points = new Point[] { up, left, right };
             graphics.DrawPolygon(pen, points);
         }
     }

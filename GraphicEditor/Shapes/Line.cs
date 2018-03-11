@@ -1,24 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-using lab2.Shapes;
+﻿using System.Drawing;
 
-namespace lab2.Shapes
+namespace GraphicEditor.Shapes
 {
     class Line : Figure
     {
-        public Point begin, end;
-        public Line(Pen pen, Point begin, Point end) : base(pen, begin, end)
-        {
-            this.begin = begin;
-            this.end = end;
-        }
+        public Line(Pen pen, Point firstPoint, Point secondPoint) : base(pen, firstPoint, secondPoint) { }
+
         public override void Draw(Graphics graphics)
         {
-            graphics.DrawLine(pen, begin, end);
+            graphics.DrawLine(pen, firstPoint, secondPoint);
         }
     }
 }
