@@ -1,4 +1,4 @@
-﻿namespace lab2
+﻿namespace GraphicEditor
 {
     partial class MainForm
     {
@@ -121,7 +121,6 @@
             this.mainPane.Name = "mainPane";
             this.mainPane.Size = new System.Drawing.Size(994, 608);
             this.mainPane.TabIndex = 6;
-            this.mainPane.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPane_Paint);
             this.mainPane.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainPane_MouseDown);
             this.mainPane.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPane_MouseMove);
             this.mainPane.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainPane_MouseUp);

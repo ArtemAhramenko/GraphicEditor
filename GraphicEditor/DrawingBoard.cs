@@ -1,11 +1,10 @@
 ﻿using GraphicEditor.Shapes;
-using lab2.Shapes;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace lab2
+namespace GraphicEditor
 {
     public partial class MainForm : Form
     {
@@ -50,7 +49,7 @@ namespace lab2
         {
             figuresDict.Add(1, new Circle(new Pen(paintColor, 3), new Point(x1, y1), new Point(x2, y2)));
             figuresDict.Add(2, new Square(new Pen(paintColor, 3), new Point(x1, y1), new Point(x2, y2)));
-            figuresDict.Add(3, new Rectangle(new Pen(paintColor, 3), new Point(x1, y1), new Point(x2, y2)));
+            figuresDict.Add(3, new Shapes.Rectangle(new Pen(paintColor, 3), new Point(x1, y1), new Point(x2, y2)));
             figuresDict.Add(4, new Triangle(new Pen(paintColor, 3), new Point(x1, y1), new Point(x2, y2)));
             figuresDict.Add(5, new Ellipse(new Pen(paintColor, 3), new Point(x1, y1), new Point(x2, y2)));
             figuresDict.Add(6, new Line(new Pen(paintColor, 3), new Point(x1, y1), new Point(x2, y2)));
@@ -71,11 +70,6 @@ namespace lab2
                     figure.Draw(g);
                 }
             }
-        }
-
-        private void mainPane_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void PictureBoxRedo_Click(object sender, EventArgs e)
