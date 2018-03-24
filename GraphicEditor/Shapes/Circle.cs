@@ -9,22 +9,8 @@ namespace GraphicEditor.Shapes
 
         public override void Draw(Graphics graphics)
         {
-            if ((firstPoint.X < secondPoint.X) && (firstPoint.Y < secondPoint.Y))
-            {
-                graphics.DrawEllipse(pen, firstPoint.X, firstPoint.Y, Math.Abs(secondPoint.X - firstPoint.X), Math.Abs(secondPoint.X - firstPoint.X));
-            }
-            else if ((firstPoint.X < secondPoint.X) && (firstPoint.Y > secondPoint.Y))
-            {
-                graphics.DrawEllipse(pen, firstPoint.X, firstPoint.Y - (firstPoint.Y - secondPoint.Y), Math.Abs(secondPoint.X - firstPoint.X), Math.Abs(secondPoint.X - firstPoint.X));
-            }
-            else if ((firstPoint.X > secondPoint.X) && (firstPoint.Y > secondPoint.Y))
-            {
-                graphics.DrawEllipse(pen, firstPoint.X - (firstPoint.X - secondPoint.X), firstPoint.Y - (firstPoint.Y - secondPoint.Y), Math.Abs(secondPoint.X - firstPoint.X), Math.Abs(secondPoint.X - firstPoint.X));
-            }
-            else
-            {
-                graphics.DrawEllipse(pen, firstPoint.X - (firstPoint.X - secondPoint.X), firstPoint.Y, Math.Abs(secondPoint.X - firstPoint.X), Math.Abs(secondPoint.X - firstPoint.X));
-            }
+            width = Math.Abs(secondPoint.X - firstPoint.X);
+            CheckCondition(graphics, width, width);
         }
     }
 }

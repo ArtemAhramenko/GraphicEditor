@@ -7,23 +7,32 @@ namespace GraphicEditor.Shapes
     {
         public Rectangle(Pen pen, Point firstPoint, Point secondPoint) : base(pen, firstPoint, secondPoint) { }
 
+        public int width { get; set; }
+        public int height { get; set; }
         public override void Draw(Graphics graphics)
+        {
+            width = Math.Abs(secondPoint.X - firstPoint.X);
+            height = Math.Abs(secondPoint.Y - firstPoint.Y);
+            CheckCondition(graphics, width, height);
+        }
+
+        public void CheckCondition(Graphics graphics, int width, int height)
         {
             if ((firstPoint.X < secondPoint.X) && (firstPoint.Y < secondPoint.Y))
             {
-                graphics.DrawRectangle(pen, firstPoint.X, firstPoint.Y, Math.Abs(secondPoint.X - firstPoint.X), Math.Abs(secondPoint.Y - firstPoint.Y));
+                graphics.DrawRectangle(pen, firstPoint.X, firstPoint.Y, width, height);
             }
             else if ((firstPoint.X < secondPoint.X) && (firstPoint.Y > secondPoint.Y))
             {
-                graphics.DrawRectangle(pen, firstPoint.X, firstPoint.Y - (firstPoint.Y - secondPoint.Y), Math.Abs(secondPoint.X - firstPoint.X), Math.Abs(secondPoint.Y - firstPoint.Y));
+                graphics.DrawRectangle(pen, firstPoint.X, secondPoint.Y, width, height);
             }
             else if ((firstPoint.X > secondPoint.X) && (firstPoint.Y > secondPoint.Y))
             {
-                graphics.DrawRectangle(pen, firstPoint.X - (firstPoint.X - secondPoint.X), firstPoint.Y - (firstPoint.Y - secondPoint.Y), Math.Abs(secondPoint.X - firstPoint.X), Math.Abs(secondPoint.Y - firstPoint.Y));
+                graphics.DrawRectangle(pen, secondPoint.X, secondPoint.Y, width, height);
             }
-            else 
+            else
             {
-                graphics.DrawRectangle(pen, firstPoint.X - (firstPoint.X - secondPoint.X), firstPoint.Y, Math.Abs(secondPoint.X - firstPoint.X), Math.Abs(secondPoint.Y - firstPoint.Y));
+                graphics.DrawRectangle(pen, secondPoint.X, firstPoint.Y, width, height);
             }
         }
     }
